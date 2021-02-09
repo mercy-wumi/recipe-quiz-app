@@ -1,29 +1,65 @@
 import React from 'react'
+// import Score from './Score'
+import cakeQuiz from '../cakeQuiz'
 
 function Cake (props){
+
+    const handleNextClick= () => {
+        const nextQuestion = props.currentQuestion + 1;
+        if (nextQuestion < cakeQuiz.length) {
+            props.setCurrentQuestion(nextQuestion)
+        }
+        else{
+            props.setShowScore(true)
+        }
+        
+    }
+    const handlePreviousClick= () => {
+        const nextQuestion = props.currentQuestion - 1;
+        props.setCurrentQuestion(nextQuestion)
+    }
+    const handleChange= (event) => {
+        const myAnswer= props.setAnswer(event.target.value)
+        const checkAnswer= cakeQuiz[props.checkAns].quizAnswer
+        if(myAnswer === checkAnswer){
+            // alert('the answer is incorrect')
+            console.log(checkAnswer)
+            props.setScore(props.score + 1)
+        }
+   }
     return (
         <div>
+        {props.showScore ? (
+            <div className="quiz-box">You scored {props.score} out of {cakeQuiz.length}</div>
+            ) : (
+                <>
             <div className="quiz-box">
                 <div className="box">
                     <div className="question">
-                    <p>{props.question}</p>
+                    <p>{cakeQuiz[props.currentQuestion].question}</p>
                     </div>
-                    <div className="option">
-                        <input type="radio" name="option" value="Rice" className="option-pick"/> {props.option_one} <br/>
-                        <input type="radio" name="option" value="Rice" className="option-pick"/> {props.option_two} <br/>
-                        <input type="radio" name="option" value="Rice" className="option-pick"/> {props.option_three} <br/>
-                        <input type="radio" name="option" value="Rice" className="option-pick"/> {props.option_four} <br/>
+                    <div className="option"> 
+                        {cakeQuiz[props.currentQuestion].answerOption.map((answerOptions) => (
+                        <div>
+                        <label>
+                        <input type="radio" name="option" value={answerOptions.options} className="option-pick" onChange={handleChange}/>
+                        {answerOptions.options}
+                        </label>
+                        </div>
+                        ))}
                     </div>
                     <div className="btn">
                         <div className="p-btn">
-                        <input type="button" value="Previous"/>
+                        <button onClick={handlePreviousClick}>Previous</button>
                         </div>
                         <div className="n-btn">
-                        <input type="button" value="Next"/>
+                        <button onClick={handleNextClick}>Next</button>
                         </div>
                     </div>
                 </div>
             </div>
+            </>
+        )}
         </div>
     )
 }
