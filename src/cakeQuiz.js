@@ -19,7 +19,7 @@ const cakeQuiz = [
         {options: "doughnut", isCorrect: true},
         {options: "pizza", isCorrect: false}
         ],
-        answer: "pizza"
+        quizAnswer: "pizza"
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const cakeQuiz = [
         {options: "powder sugar", isCorrect: true},
         {options: "flavor", isCorrect: false}
         ],
-        answer: "flavor"
+        quizAnswer: "flavor"
     }, 
     {
         id: 4,
@@ -41,7 +41,7 @@ const cakeQuiz = [
         {options: "doughnut", isCorrect: true},
         {options: "pizza", isCorrect: false}
         ],
-        answer: "powder"
+        quizAnswer: "powder"
     },
     {
         id: 5,
@@ -52,7 +52,7 @@ const cakeQuiz = [
         {options: "powder sugar", isCorrect: true},
         {options: "flavor", isCorrect: false}
         ],
-        answer: "sugar"
+        quizAnswer: "sugar"
     }    
 ]
 

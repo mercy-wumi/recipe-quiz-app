@@ -6,10 +6,6 @@ import MainContent from './components/MainContent'
 
 function App (){
 
-  // const[question, setQuestion] = useState([])
-  // const[score, setScore] = useState(0)
-  // const[currentQuestion, setCurrentQuestion] = useState(0)
-
   return(
     <div>
     <Header/>

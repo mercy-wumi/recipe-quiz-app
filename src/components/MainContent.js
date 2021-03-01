@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Cake from './Cake'
+import cakeQuiz from '../cakeQuiz'
 
 
 function MainContent (){
@@ -10,6 +11,7 @@ function MainContent (){
     const[score, setScore]= useState(0)
     const[answer, setAnswer]= useState("")
     const[checkAns, setCheckAns]= useState("")
+    // const[]
 
 
     return(

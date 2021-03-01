@@ -12,21 +12,23 @@ function Cake (props){
         else{
             props.setShowScore(true)
         }
-        
+        props.setAnswer("");
     }
     const handlePreviousClick= () => {
         const nextQuestion = props.currentQuestion - 1;
-        props.setCurrentQuestion(nextQuestion)
+        props.setCurrentQuestion(nextQuestion);
+        props.setAnswer("");
     }
     const handleChange= (event) => {
-        const myAnswer= props.setAnswer(event.target.value)
-        const checkAnswer= cakeQuiz[props.checkAns].quizAnswer
+        const myAnswer= props.setAnswer(event.target.value)             
+        const checkAnswer = cakeQuiz[props.setCheckAns].quizAnswer
+        console.log(checkAnswer)
         if(myAnswer === checkAnswer){
             // alert('the answer is incorrect')
             console.log(checkAnswer)
             props.setScore(props.score + 1)
         }
-   }
+        }
     return (
         <div>
         {props.showScore ? (
@@ -55,6 +57,9 @@ function Cake (props){
                         <div className="n-btn">
                         <button onClick={handleNextClick}>Next</button>
                         </div>
+                    </div>
+                    <div>
+                        {cakeQuiz.quizAnswer}
                     </div>
                 </div>
             </div>
